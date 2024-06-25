@@ -1,0 +1,37 @@
+version: "3"
+services:
+  afroconnect:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: afroconnect_container
+    depends_on:
+      db:
+        condition: service_healthy
+
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/AfroConnect/
+
+
+  db:
+    image: mysql:latest
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 1s
+      timeout: 5s
+      retries: 300
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data:
