@@ -2,6 +2,10 @@
 
 Welcome to AfroConnect, your gateway to discovering and celebrating African cultures around the world. Whether you're passionate about exploring diverse traditions, languages, or histories, AfroConnect provides a platform to connect with your roots and learn more about the rich tapestry of Africa.
 
+You can explore AfroConnect online at https://afroconnect.albanagisa.fr/
+
+
+
 ## Requirements
 
 - Docker Compose version v2.27.1 or greater
